@@ -24,7 +24,7 @@ public:
 
 	/*Load given file to container
 	Return added texture*/
-	sf::Texture * load(std::string name, std::string path);
+	static sf::Texture * load(std::string name, std::string path);
 	
 	/*Return given texture with given index*/
 	static sf::Texture * get(std::string name);
@@ -39,6 +39,7 @@ public:
 
 
 private:
+	/*Private default constructor*/
 	TextureManager(){}
 	/*Def text. cont.*/
 	TextureContainer textureContainer;

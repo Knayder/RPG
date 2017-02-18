@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Scene.h"
 #include "Player.h"
+#include "TextureManager.h"
 
 enum Status {
 	Initializing,

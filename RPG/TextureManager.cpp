@@ -8,11 +8,12 @@ TextureManager::~TextureManager(){
 
 sf::Texture * TextureManager::load(std::string name, std::string path){
 	sf::Texture *texture = TextureManager::get(name);
-	
+	TextureManager & instance = Instance();
+
 	if (texture == nullptr) {
 		texture = new sf::Texture();
 		texture->loadFromFile(path);
-		textureContainer[name] = texture;
+		instance.textureContainer[name] = texture;
 	}
 	else
 		texture->loadFromFile(path);

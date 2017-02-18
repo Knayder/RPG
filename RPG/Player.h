@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Pawn.h"
+#include "TextureManager.h"
 
 class PlayerController;
 
 class Player : public Pawn
 {
-	sf::RectangleShape shape;
+	sf::Sprite player;
 	
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 public:
@@ -16,11 +17,8 @@ public:
 
 class PlayerController : public PawnController
 {
-	sf::Vector2f velocity;
 public:
-	PlayerController():
-		velocity(300,0)
-	{}
+	PlayerController();
 	
 	virtual void update(const float &deltaTime) override;
 };

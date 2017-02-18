@@ -1,13 +1,12 @@
 #include "Game.h"
-#include "TextureManager.h"
+
 
 Game::Game() :
 	status(Initializing),
 	window(sf::VideoMode(1280,720), "Title", sf::Style::Close),
 	currentScene(new Scene())
 {
-	/*Load textures to TextureManager*/
-	//To do.
+	TextureManager::load("player", "data/player.png");
 }
 
 
@@ -25,7 +24,6 @@ void Game::run(){
 	currentScene->add(player);
 
 	while (getStatus() != CleaningUp) {
-		deltaTime *= 50;
 		float startTime = clock.getElapsedTime().asSeconds();
 
 		input();

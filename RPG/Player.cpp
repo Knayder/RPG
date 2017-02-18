@@ -5,24 +5,21 @@
 
 
 Player::Player() :
-	Pawn(new PlayerController()),
-	shape(sf::Vector2f(50,50))
+	Pawn(new PlayerController())
 {
-
+	player.setTexture(*(TextureManager::get("player")));
 }
 
 void Player::draw(sf::RenderTarget & target, sf::RenderStates states) const {
 	states.transform *= getTransform();
-	target.draw(shape, states);
+	target.draw(player, states);
 }
 
 
+PlayerController::PlayerController()
+{
+}
+
 void PlayerController::update(const float & deltaTime) {
-	sf::Vector2f offset(1280 / 2, 720 / 2);
-	offset -= owner->getPosition();
-	float c = std::sqrt(offset.x*offset.x + offset.y*offset.y);
-	offset.x /= c;
-	offset.y /= c;
-	velocity += offset;
-	owner->move(velocity*deltaTime);
+	owner->rotate(10*deltaTime);
 }
