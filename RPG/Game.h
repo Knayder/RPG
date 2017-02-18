@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "Player.h"
 #include "TextureManager.h"
+#include "Tile.h"
 
 enum Status {
 	Initializing,

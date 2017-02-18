@@ -3,10 +3,11 @@
 
 Game::Game() :
 	status(Initializing),
-	window(sf::VideoMode(1280,720), "Title", sf::Style::Close),
-	currentScene(new Scene())
+	window(sf::VideoMode(1280,720), "Title", sf::Style::Close)
 {
+	TextureManager::load("grass", "data/grass.png");
 	TextureManager::load("player", "data/player.png");
+	currentScene = new Scene();
 }
 
 
@@ -20,8 +21,7 @@ void Game::run(){
 	sf::Clock clock;
 	float deltaTime = 1.f / 60.f;
 
-	Entity *player = new Player();
-	currentScene->add(player);
+	
 
 	while (getStatus() != CleaningUp) {
 		float startTime = clock.getElapsedTime().asSeconds();
